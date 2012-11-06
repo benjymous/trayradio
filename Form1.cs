@@ -131,8 +131,16 @@ namespace TrayRadio
             }
             else
             {
-                String artist = getElementText("artists", "p");
-                String track = getElementText("track", "p");
+                String artist = null;
+                String track = null;
+
+                HtmlElement element = findElement("realtime", "div");
+
+                if (element != null && element.Style != null && !element.Style.Contains("none"))
+                {
+                    artist = getElementText("artists", "p");
+                    track = getElementText("track", "p");
+                }
 
                 if (artist != null && track != null)
                 {
@@ -210,9 +218,15 @@ namespace TrayRadio
         private void notifyIcon1_MouseMove(object sender, MouseEventArgs e)
         {
             string tip = getTooltip();
-            if (tip.Length > 64)
+            if (tip.Length >= 64)
                 tip = tip.Substring(0, 60) + "...";
             notifyIcon1.Text = tip;
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            clickButton("volume-mute");
+            updateIcon();
         }
 
     }

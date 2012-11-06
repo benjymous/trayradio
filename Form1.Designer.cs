@@ -34,11 +34,11 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.muteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.playStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "radioplayer";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             this.notifyIcon1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDown);
             this.notifyIcon1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseMove);
             // 
@@ -82,6 +83,13 @@
             this.reloadToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.reloadToolStripMenuItem.Text = "Reload";
             this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
+            // 
+            // playStopToolStripMenuItem
+            // 
+            this.playStopToolStripMenuItem.Name = "playStopToolStripMenuItem";
+            this.playStopToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.playStopToolStripMenuItem.Text = "Play/Stop";
+            this.playStopToolStripMenuItem.Click += new System.EventHandler(this.playStopToolStripMenuItem_Click);
             // 
             // muteToolStripMenuItem
             // 
@@ -106,13 +114,6 @@
             // 
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // playStopToolStripMenuItem
-            // 
-            this.playStopToolStripMenuItem.Name = "playStopToolStripMenuItem";
-            this.playStopToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.playStopToolStripMenuItem.Text = "Play/Stop";
-            this.playStopToolStripMenuItem.Click += new System.EventHandler(this.playStopToolStripMenuItem_Click);
             // 
             // Form1
             // 
