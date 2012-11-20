@@ -117,6 +117,12 @@ namespace TrayRadio
             return (element!=null &&  element.Style != null && !element.Style.Contains("none"));
         }
 
+        class SongInfo
+        {
+            public String artist = null;
+            public String track = null;
+        }
+
         public string getTooltip()
         {
             if (isLoading())
@@ -131,23 +137,28 @@ namespace TrayRadio
             }
             else
             {
-                String artist = null;
-                String track = null;
 
-                HtmlElement element = findElement("realtime", "div");
+                SongInfo info = getSongInfo();
 
-                if (element != null && element.Style != null && !element.Style.Contains("none"))
+                if (info.artist != null && info.track != null)
                 {
-                    artist = getElementText("artists", "p");
-                    track = getElementText("track", "p");
-                }
-
-                if (artist != null && track != null)
-                {
-                    return showName + "\r\n\r\n" + artist + " - " + track;
+                    return showName + "\r\n\r\n" + info.artist + " - " + info.track;
                 }
             }
             return showName;
+        }
+
+        private SongInfo getSongInfo()
+        {
+            SongInfo info = new SongInfo();
+            HtmlElement element = findElement("realtime", "div");
+
+            if (element != null && element.Style != null && !element.Style.Contains("none"))
+            {
+                info.artist = getElementText("artists", "p");
+                info.track = getElementText("track", "p");
+            }
+            return info;
         }
 
         public string getShowName()
@@ -227,6 +238,52 @@ namespace TrayRadio
         {
             clickButton("volume-mute");
             updateIcon();
+        }
+
+        private void searchToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            SongInfo info = getSongInfo();
+            if (info.artist != null)
+            {
+                deezerForArtistToolStripMenuItem.Enabled = true;
+                deezerForArtistToolStripMenuItem.Text = "Search Deezer for '"+info.artist+"'";
+                deezerForArtistToolStripMenuItem.Tag = info;
+            }
+            else
+            {
+                deezerForArtistToolStripMenuItem.Enabled = false;
+                deezerForArtistToolStripMenuItem.Text = "Search Deezer for Artist";
+            }
+
+            if (info.artist != null && info.track != null)
+            {
+                deezerForArtisttrackToolStripMenuItem.Enabled = true;
+                deezerForArtisttrackToolStripMenuItem.Text = "Search Deezer for '" + info.artist + " " + info.track + "'";
+                deezerForArtisttrackToolStripMenuItem.Tag = info;
+            }
+            else
+            {
+                deezerForArtisttrackToolStripMenuItem.Enabled = false;
+                deezerForArtisttrackToolStripMenuItem.Text = "Search Deezer for Artist+Track";
+            }
+            
+        }
+
+        private void searchDeezer(String str)
+        {
+            System.Diagnostics.Process.Start("http://www.deezer.com/en/search/"+str);
+        }
+
+        private void deezerForArtistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SongInfo info = deezerForArtistToolStripMenuItem.Tag as SongInfo;
+            searchDeezer(info.artist);
+        }
+
+        private void deezerForArtisttrackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SongInfo info = deezerForArtistToolStripMenuItem.Tag as SongInfo;
+            searchDeezer(info.artist + " " + info.track);
         }
 
     }

@@ -36,6 +36,10 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.muteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deezerForArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deezerForArtisttrackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -70,43 +74,76 @@
             this.reloadToolStripMenuItem,
             this.playStopToolStripMenuItem,
             this.muteToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.toolStripMenuItem1,
             this.toolStripSeparator1,
             this.quitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(140, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 148);
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // reloadToolStripMenuItem
             // 
             this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reloadToolStripMenuItem.Text = "Reload";
             this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // playStopToolStripMenuItem
             // 
             this.playStopToolStripMenuItem.Name = "playStopToolStripMenuItem";
-            this.playStopToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.playStopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.playStopToolStripMenuItem.Text = "Play/Stop";
             this.playStopToolStripMenuItem.Click += new System.EventHandler(this.playStopToolStripMenuItem_Click);
             // 
             // muteToolStripMenuItem
             // 
             this.muteToolStripMenuItem.Name = "muteToolStripMenuItem";
-            this.muteToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.muteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.muteToolStripMenuItem.Text = "Mute/Unmute";
             this.muteToolStripMenuItem.Click += new System.EventHandler(this.muteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deezerForArtistToolStripMenuItem,
+            this.deezerForArtisttrackToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "Search";
+            this.toolStripMenuItem1.DropDownOpened += new System.EventHandler(this.searchToolStripMenuItem_DropDownOpening);
+            // 
+            // deezerForArtistToolStripMenuItem
+            // 
+            this.deezerForArtistToolStripMenuItem.Enabled = false;
+            this.deezerForArtistToolStripMenuItem.Name = "deezerForArtistToolStripMenuItem";
+            this.deezerForArtistToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.deezerForArtistToolStripMenuItem.Text = "Deezer for artist";
+            this.deezerForArtistToolStripMenuItem.Click += new System.EventHandler(this.deezerForArtistToolStripMenuItem_Click);
+            // 
+            // deezerForArtisttrackToolStripMenuItem
+            // 
+            this.deezerForArtisttrackToolStripMenuItem.Enabled = false;
+            this.deezerForArtisttrackToolStripMenuItem.Name = "deezerForArtisttrackToolStripMenuItem";
+            this.deezerForArtisttrackToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.deezerForArtisttrackToolStripMenuItem.Text = "Deezer for artist-track";
+            this.deezerForArtisttrackToolStripMenuItem.Click += new System.EventHandler(this.deezerForArtisttrackToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -148,6 +185,10 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem muteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playStopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deezerForArtistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deezerForArtisttrackToolStripMenuItem;
     }
 }
 
